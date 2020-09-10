@@ -1,0 +1,33 @@
+export interface ISchemeExhibition {
+    ImageData;
+    Condition1__c: number;
+Condition2__c: number;
+Condition3__c: number;
+CreatedById: string;
+End_Date__c: string;
+Id: string;
+Image__c: string;
+LastModifiedBy: {};
+LastModifiedById: string;
+Name: string;
+Product1__c: string;
+Product2__c: string;
+Product3__c: string;
+Product4__c: string;
+Product5__c: string;
+Product6__c: string;
+Product_Code__c: string;
+RecordTypeId: string;
+Scheme_Type__c: string;
+Start_Date__c: string;
+Title__c: string;
+Value1__c: string;
+Value2__c: string;
+Value3__c: string;
+Product1__r: {Id: string, Name: string};
+Product2__r: {Id: string, Name: string};
+Product3__r: {Id: string, Name: string};
+Product4__r: {Id: string, Name: string};
+Product5__r: {Id: string, Name: string};
+Product6__r: {Id: string, Name: string};
+}

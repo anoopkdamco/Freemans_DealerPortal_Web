@@ -1,0 +1,100 @@
+<div *ngIf="loading" layout="row" layout-fill layout-align="center center" class="spinner-ctn text-center spinner-overlay">
+    <div>
+        <mat-spinner color="accent"></mat-spinner>
+    </div>
+</div>
+<div *ngIf="!loading">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <mat-toolbar>Orders</mat-toolbar>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="clearfix flexs-main">
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="allOrders" [ngClass]="{'activeCard':activeTab=='allorders'}" (click)="allOrder('allorders')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;">All Orders</h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{pendingOrder}}<small class="info"> Pending Orders out of {{totalOrder}} Total</small></h2>
+                            <small>{{(tAllOrder * 100).toFixed(0)}}% of Total Orders are Pending</small>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" attr.aria-valuenow="{{pendingOrder}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalOrder}}" [style.width]="tAllOrder | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="card widget_2 flex-card-wrap">
+                <!-- <a class="active" > -->
+                <mat-card class="body activeCard box-link" id="po" [ngClass]="{'activeCard':activeTab=='po'}" (click)="pendingOrders('po')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">Pending Orders</a></h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{pendingAmt}} <small class="info"> Pending Order Value out of {{totalAmt}} Total</small></h2>
+                            <small>{{(tPendingOrder * 100).toFixed(0)}}% of Total Order Value is Pending</small>
+                            <div class="progress">
+                                <div class="progress-bar l-pink" role="progressbar" attr.aria-valuenow="{{pendingOrderPrice}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalPrice}}" [style.width]="tPendingOrder | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="pow" [ngClass]="{'activeCard':activeTab=='pow'}" (click)="pendingOrderItemWise('pow')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">Pending Orders Item Wise</a></h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{pendingItemLength}}<small class="info"> Pending Order Line Items out of {{totalPendingWise}} Total</small></h2>
+                            <small>{{(tItemWise * 100).toFixed(0)}}% of Total Order Line Items are Pending</small>
+                            <div style="visibility: hidden;">
+                                <small>6% higher than last month</small>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" attr.aria-valuenow="{{pendingItemLength}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalPendingWise}}" [style.width]="tItemWise | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="card widget_2 text-center flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="co" [ngClass]="{'activeCard':activeTab=='co'}" (click)="createOrder('co')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">Create Order</a></h5>
+                            <div class="material-icons plusIcon">
+                                add_box
+                            </div>
+                            <div style="display:none;">
+                                <small>6% higher than last month</small>
+                                <small>6% higher than last month</small>
+                                <small>6% higher than last month</small>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="clearfix">
+            <div *ngIf="all_order">
+                <app-all-orders [allOrdersRecord]="allOrders"></app-all-orders>
+            </div>
+            <div *ngIf="create_order">
+                <app-create-order [newOrder]="create_order" (saveOrder)="getCreatedOrder($event)" [accountInfo]="accountInfo"></app-create-order>
+            </div>
+            <div *ngIf="pending_order">
+                <app-pending-orders [allOrdersRecord]="allOrders"></app-pending-orders>
+            </div>
+            <div *ngIf="pending_order_wise">
+                <app-pending-order-wise [allOrders]="pendingItemOrderList"></app-pending-order-wise>
+            </div>
+        </div>
+    </div>
+
+</div>

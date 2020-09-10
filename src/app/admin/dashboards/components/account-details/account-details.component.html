@@ -1,0 +1,284 @@
+<div *ngIf="loading" layout="row" layout-fill layout-align="center center" class="spinner-ctn text-center spinner-overlay">
+    <div>
+        <mat-spinner color="accent"></mat-spinner>
+    </div>
+</div>
+<div *ngIf="!loading">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="header">
+                <h5 style="color: #ed3237">Account Details</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <form [formGroup]="accountForm">
+                    <div class="card">
+                        <div class="header">
+                            <mat-toolbar>Account Information</mat-toolbar>
+                        </div>
+                        <div class="body">
+                            <div class="card">
+                                <div class="example-container">
+                                    <div class="row clearfix" style="font-size: 12px">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Account Name</mat-label>
+                                                    <input matInput formControlName="accountName">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Email</mat-label>
+                                                    <input matInput formControlName="email">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Phone</mat-label>
+                                                    <input matInput formControlName="phone">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Parent Account</mat-label>
+                                                    <input matInput formControlName="parentAccount">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix" style="font-size: 12px">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Industry</mat-label>
+                                                    <input matInput formControlName="industry">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Field Sales Officer (FSO)</mat-label>
+                                                    <input matInput formControlName="fso">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Agent Name</mat-label>
+                                                    <input matInput formControlName="agentName">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Shipment Terms</mat-label>
+                                                    <input matInput formControlName="shipmentTerm">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="header">
+                            <mat-toolbar>KYC Information</mat-toolbar>
+                        </div>
+                        <div class="body">
+                            <div class="card">
+                                <div class="example-container">
+                                    <div class="row clearfix" style="font-size: 12px">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Contact Name</mat-label>
+                                                    <input matInput formControlName="contactName">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Aadhar Number </mat-label>
+                                                    <input matInput formControlName="adharNumber">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>PAN Number</mat-label>
+                                                    <input matInput formControlName="panNumber">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>GST/UIN</mat-label>
+                                                    <input matInput formControlName="gstUin">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix" style="font-size: 12px">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>ECMS Code</mat-label>
+                                                    <input matInput formControlName="ecmsCode">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>CMS Code</mat-label>
+                                                    <input matInput formControlName="cmsCode">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Birthday</mat-label>
+                                                    <input matInput formControlName="birthday">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="header">
+                            <mat-toolbar>Address Information</mat-toolbar>
+                        </div>
+                        <div class="body">
+                            <div class="card">
+                                <div class="example-container">
+                                    <div class="row clearfix" style="font-size: 12px">
+                                        <div class="col-lg-2 col-md-4">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Account Name</mat-label>
+                                                    <input matInput formControlName="billingAccountName">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-4">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Billing Street</mat-label>
+                                                    <input matInput formControlName="billingStreet">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-4">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Billing City</mat-label>
+                                                    <input matInput formControlName="billingCity">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-4">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Billing State</mat-label>
+                                                    <input matInput formControlName="billingState">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-4">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Billing Country</mat-label>
+                                                    <input matInput formControlName="billingCountry">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-4">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Postal Code</mat-label>
+                                                    <input matInput formControlName="billingPostalCode">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row clearfix" style="font-size: 12px">
+                                        <div class="col-lg-2 col-md-4">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Account Name</mat-label>
+                                                    <input matInput formControlName="shippingAccountName">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-md-4">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Shipping Street</mat-label>
+                                                    <input matInput formControlName="shippingStreet">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-lg-2 col-md-4 col-sm-2">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Shipping City</mat-label>
+                                                    <input matInput formControlName="shippingCity">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-lg-2 col-md-4 col-sm-2">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Shipping State</mat-label>
+                                                    <input matInput formControlName="shippingState">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-lg-2 col-md-4 col-sm-2">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Shipping Country</mat-label>
+                                                    <input matInput formControlName="shippingCountry">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2 col-lg-2 col-md-4 col-sm-2">
+                                            <div class="form-group">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-label>Postal Code</mat-label>
+                                                    <input matInput required minlength="6" maxlength="6" formControlName="shippingPostalCode">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

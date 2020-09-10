@@ -1,0 +1,73 @@
+<div class="authentication">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="card auth_form">
+                    <div class="header">
+                        <img class="logo" src="https://freemansgroup--damco--c.visualforce.com/resource/1591169466000/DP_AngularBase_v2/dist/freemans/assets/images/logo_fe.png" alt="">
+                        <h5>Sign Up</h5>
+                        <span>Register a new membership</span>
+                    </div>
+                    <div class="body">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" formControlName="userName" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" placeholder="Username">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i></span>
+                            </div>
+                            <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                                <div *ngIf="f.userName.errors.required">User Name is required</div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" formControlName="email" placeholder="Enter Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-email"></i></span>
+                            </div>
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" class="form-control" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Password">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-lock"></i></span>
+                            </div>
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <!-- <div class="input-group mb-3">
+                            <input type="text" class="form-control" formControlName="cnfPassword" placeholder="Confirm Password">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-lock"></i></span>
+                            </div>
+                        </div> -->
+                        <div class="checkbox">
+                            <input id="remember_me" type="checkbox">
+                            <label for="remember_me">I read and agree to the <a [routerLink]="['/login']">terms of usage</a></label>
+                        </div>
+                        <!-- <a class="btn btn-primary btn-block waves-effect waves-light">SIGN UP</a> -->
+                        <button class="btn btn-primary btn-block waves-effect waves-light">Sign UP</button>
+                        <div class="signin_with mt-3">
+                            <a [routerLink]="['/login']" class="link">You already have a membership?</a>
+                        </div>
+                    </div>
+                </form>
+                <!-- <div class="copyright text-center">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>,
+                    <span>Designed by <a href="https://thememakker.com/" target="_blank">ThemeMakker</a></span>
+                </div> -->
+            </div>
+            <div class="col-lg-8 col-sm-12">
+                <div class="card">
+                    <img src="https://freemansgroup--damco--c.visualforce.com/resource/1591169466000/DP_AngularBase_v2/dist/freemans/assets/images/signup.svg" alt="Sign Up" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,368 @@
+<div *ngIf="!loading">
+    <div *ngIf="!dataVal">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                    <div data-aura-rendered-by="2879:0">
+                        <p style="font-size: 30px;" data-aura-rendered-by="2880:0">No Records Available for this user, <span data-aura-rendered-by="2882:0">Please contact Your Administrator</span></p>
+                    </div>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="dataVal">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                    <div data-aura-rendered-by="2879:0"><b style="font-size: 30px;" data-aura-rendered-by="2880:0"> Welcome <span style="color: #ed3237;" data-aura-rendered-by="2882:0">{{accountName}}</span></b></div>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="clearfix flexs-main">
+                <div class="card widget_2 flex-card-wrap">
+                    <a [routerLink]="['/freemans/dashboard/sales']" [state]="{ data : 'qSales'}">
+                        <mat-card class="body active" id="po">
+                            <mat-card-content>
+                                <div class="card-content-wrap">
+                                    <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">Quarterly Sales Performance</a></h5>
+                                    <h2 style=" color: #8f98ec; font-size: 16px;">{{qSales}}<small class="info"> Sales Achieved out of Quarterly Target of {{totalQSales}}</small></h2>
+                                    <small>{{(hTarget * 100).toFixed(0)}}% of Quarterly Sales Target Achieved</small>
+                                    <div style="visibility: hidden;">
+                                        <small>6% higher than last month</small>
+                                    </div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar l-blue" role="progressbar" attr.aria-valuenow="{{quaterlyAchieved}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalQuarterTarget}}" [style.width]="hTarget | percent:'1.0-1'"></div>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </a>
+                </div>
+
+                <div class="card widget_2 flex-card-wrap">
+                    <a [routerLink]="['/freemans/dashboard/sales']" [state]="{ data: 'hSchemes'}">
+                        <mat-card class="body active" id="invoice">
+                            <mat-card-content>
+                                <div class="card-content-wrap">
+                                    <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">Schemes Performance</a></h5>
+                                    <h2 style=" color: #8f98ec; font-size: 16px;">{{schemeAchieved}}<small class="info"> Schemes Achieved out of {{totalSchemeTarget}} Launched</small></h2>
+                                    <small>{{(hScheme * 100).toFixed(0)}}% of Total Schemes Achieved </small>
+                                    <div style="visibility: hidden;">
+                                        <small>6% higher than last month</small>
+                                    </div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar l-pink" role="progressbar" attr.aria-valuenow="{{schemeAchieved}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalSchemeTarget}}" [style.width]="hScheme | percent:'1.0-1'"></div>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </a>
+                </div>
+
+                <div class="card widget_2 flex-card-wrap">
+                    <mat-card class="body active" id="cases">
+                        <mat-card-content>
+                            <div class="card-content-wrap">
+                                <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237"> Credit Limit Available</a></h5>
+                                <h2 style=" color: #8f98ec; font-size: 16px;">{{cardCLimit}}<small class="info"> Credit Limit Available out of {{totalCLimit}}</small></h2>
+                                <small>{{(hLimit * 100).toFixed(0)}}% of Total Credit Limit is Available</small>
+                                <div style="visibility: hidden;">
+                                    <small>6% higher than last month</small>
+                                </div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" attr.aria-valuenow="{{creditLimit}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalCreditLimit}}" [style.width]="hLimit | percent:'1.0-1'"></div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+
+                <div class="card widget_2 flex-card-wrap">
+                    <a [routerLink]="['/freemans/dashboard/cases']" [state]="{ data: 'hClosed'}">
+                        <mat-card class="body active" id="cases">
+                            <mat-card-content>
+                                <div class="card-content-wrap">
+                                    <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237"> All Closed Cases</a></h5>
+                                    <h2 style=" color: #8f98ec; font-size: 16px;">{{totalCasesClosed}}<small class="info"> Cases Closed out of {{totalCase}} Total</small></h2>
+                                    <small>{{(hCases * 100).toFixed(0)}}% of Total Cases Closed</small>
+                                    <div style="visibility: hidden;">
+                                        <small>6% higher than last month</small>
+                                    </div>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar l-green" role="progressbar" attr.aria-valuenow="{{totalCasesClosed}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalCase}}" [style.width]="hCases | percent:'1.0-1'"></div>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </a>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 col-lg-6">
+                    <div class="card">
+                        <div class="body">
+                            <div class="chart-wrapper">
+                                <span class="chart-head" style="text-align: center;">Sales Achievement FY {{finanicialYear}}</span>
+                                <div *ngIf="fYVal">
+                                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+                                    </canvas>
+                                </div>
+                                <div *ngIf="!fYVal">
+                                    <p style="font-size: 15px; text-align: center;" data-aura-rendered-by="2880:0">No Records Available for this user
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="card">
+                        <div class="body">
+                            <div class="chart-wrapper">
+                                <span class="chart-head" style="text-align: center;">Sales Month on Month</span>
+                                <div *ngIf="salesReport.length > 0">
+                                    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [colors]="lineChartColors" [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins">
+                                    </canvas>
+                                </div>
+                                <div *ngIf="salesReport.length == 0">
+                                    <p style="font-size: 15px; text-align: center;" data-aura-rendered-by="2880:0">No Records Available for this user
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 col-lg-6">
+                    <div class="card">
+                        <div class="body">
+                            <div class="chart-wrapper">
+                                <span class="chart-head" style="text-align: center;">Pending Orders</span>
+                                <div *ngIf="allOrders.length > 0">
+                                    <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" [colors]="pieChartColors" [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                                    </canvas>
+                                </div>
+                                <div *ngIf="allOrders.length == 0">
+                                    <p style="font-size: 15px; text-align: center;" data-aura-rendered-by="2880:0">No Records Available for this user
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="card">
+                        <div class="body">
+                            <div class="chart-wrapper">
+                                <span class="chart-head" style="text-align: center;">Payments Overview</span>
+                                <div *ngIf="invoiceData.length > 0">
+                                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="doughnutChartOptions" [chartType]="doughnutChartType" [colors]="doughnutChartColors" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                                    </canvas>
+                                </div>
+                                <div *ngIf="invoiceData.length == 0">
+                                    <p style="font-size: 15px; text-align: center;" data-aura-rendered-by="2880:0">No Records Available for this user
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix lowRes">
+                <div class="centerBox col-md-12 col-lg-6">
+                    <div class="card">
+                        <div class="body">
+                            <div class="chart-wrapper">
+                                <div class="chart-container" style="position: relative; ">
+                                    <div class="chart-head-container">
+                                        <div class="chart-head-box">
+                                            <span class="chart-head" style="text-align: center;">Annual Sales Performance FY {{fisYear}}</span>
+                                        </div>
+                                        <div class="chart-leg-box">
+                                            <div class="legLi">
+                                                <div class="foo bronze"></div> <span>Bronze</span></div>
+                                            <div class="legLi">
+                                                <div class="foo silver"></div> <span>Silver</span>
+                                            </div>
+                                            <div class="legLi">
+                                                <div class="foo gold"></div> <span>Gold</span>
+                                            </div>
+                                            <div class="legLi">
+                                                <div class="foo platinum"></div> <span>Platinum</span>
+                                            </div>
+                                            <div class="legLi">
+                                                <div class="foo centurian"></div> <span>Centurian</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-body-container">
+
+                                        <rg-gauge-chart style="float:none; clear:none; margin:0 auto;" [canvasWidth]="canvasWidth" [needleValue]="needleValue" [centralLabel]="centralLabel" [options]="options">
+                                        </rg-gauge-chart>
+                                    </div>
+                                    <div class="chart-foot-container">
+                                        <div class="chart-lb-box" style="font-weight: bold;">
+                                            <span *ngIf="calenderYr != 'NA'">{{calenderYr}}</span>
+                                        </div>
+
+                                        <div class="chart-af-box">
+                                            <span class="chart-head" style="text-align: center;">Sales {{totalCloseWon}}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- high resolution -->
+            <div class="row clearfix highRes">
+                <div class="centerBox col-md-12 col-lg-6">
+                    <div class="card">
+                        <div class="body">
+                            <div class="chart-wrapper">
+                                <div class="chart-container" style="position: relative; ">
+                                    <div class="chart-head-container">
+                                        <div class="chart-head-box">
+                                            <span class="chart-head" style="text-align: center;">Annual Sales Performance FY {{fisYear}}</span>
+                                        </div>
+                                        <div class="chart-leg-box">
+                                            <div class="legLi">
+                                                <div class="foo bronze"></div> <span>Bronze</span></div>
+                                            <div class="legLi">
+                                                <div class="foo silver"></div> <span>Silver</span>
+                                            </div>
+                                            <div class="legLi">
+                                                <div class="foo gold"></div> <span>Gold</span>
+                                            </div>
+                                            <div class="legLi">
+                                                <div class="foo platinum"></div> <span>Platinum</span>
+                                            </div>
+                                            <div class="legLi">
+                                                <div class="foo centurian"></div> <span>Centurian</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-body-container" style="width: 600px;margin: 60px auto;">
+
+                                        <rg-gauge-chart style="float:none; clear:none; margin:0 auto;" [canvasWidth]="canvasHighWidth" [needleValue]="needleValue" [centralLabel]="centralLabel" [options]="options">
+                                        </rg-gauge-chart>
+                                    </div>
+                                    <div class="chart-foot-container" style="bottom:-36px">
+                                        <div class="chart-lb-box" style="font-weight: bold;">
+                                            <span *ngIf="calenderYr != 'NA'">{{calenderYr}}</span>
+                                        </div>
+
+                                        <div class="chart-af-box">
+                                            <span class="chart-head" style="text-align: center;">Sales {{totalCloseWon}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-md-12 col-lg-4">
+                    <div class="card">
+                        <div class="header">
+                            <h6 style="color: #ed3237">Latest Product(s)</h6>
+                        </div>
+                        <div *ngIf="latestProduct.length > 0" class="body">
+                            <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true" interval="4000" [keyboard]="true" [pauseOnHover]="true">
+                                <ng-container *ngFor="let image of latestProduct">
+                                    <ng-template ngbSlide [id]="image.FileName">
+                                        <img id="myimage1" [src]='image.ImageData' [alt]="image.FileName" />
+                                        <div class="carousel-caption">
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                            </ngb-carousel>
+                        </div>
+                        <div *ngIf="latestProduct.length == 0" class="body">
+                            <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" interval="4000" [keyboard]="true" [pauseOnHover]="true">
+                                <ng-container>
+                                    <ng-template ngbSlide>
+                                        <img id="myimage1" [src]='' [alt]="prodMsg" />
+                                        <div class="carousel-caption">
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                            </ngb-carousel>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h6 style="color: #ed3237">Upcoming Exhibition(s)</h6>
+                        </div>
+                        <div *ngIf="exhibitionHome.length > 0" class="body">
+                            <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true" interval="4000" [keyboard]="true" [pauseOnHover]="true">
+                                <ng-container *ngFor="let slide of exhibitionHome">
+                                    <ng-template ngbSlide [id]="slide.Id">
+                                        <img id="myimage1" (click)="openDialog(slide)" [src]='slide.ImageData' [alt]="slide.Name" />
+                                        <div class="carousel-caption">
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                            </ngb-carousel>
+                        </div>
+                        <div *ngIf="exhibitionHome.length == 0" class="body">
+                            <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" interval="4000" [keyboard]="true" [pauseOnHover]="true">
+                                <ng-container>
+                                    <ng-template ngbSlide>
+                                        <img id="myimage1" [src]='' [alt]="prodMsg" />
+                                        <div class="carousel-caption">
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                            </ngb-carousel>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h6 style="color: #ed3237">Current Scheme(s)</h6>
+                        </div>
+                        <div *ngIf="schemeExhibition.length > 0" class="body">
+                            <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="true" interval="4000" [keyboard]="true" [pauseOnHover]="true">
+                                <ng-container *ngFor="let scheme of schemeExhibition">
+                                    <ng-template ngbSlide [id]="scheme.Id">
+                                        <img id="schemeimage" (click)="openSchemeDialog(scheme)" [src]='scheme.ImageData' [alt]="scheme.Name" />
+                                        <div class="carousel-caption">
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                            </ngb-carousel>
+                        </div>
+                        <div *ngIf="schemeExhibition.length == 0" class="body">
+                            <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" interval="4000" [keyboard]="true" [pauseOnHover]="true">
+                                <ng-container>
+                                    <ng-template ngbSlide>
+                                        <img id="schemeimage" [src]='' [alt]="prodMsg" />
+                                        <div class="carousel-caption">
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                            </ngb-carousel>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="loading" layout="row" layout-fill layout-align="center center" class="spinner-ctn text-center spinner-overlay">
+    <div>
+        <mat-spinner color="accent"></mat-spinner>
+    </div>
+</div>

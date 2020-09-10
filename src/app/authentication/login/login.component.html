@@ -1,0 +1,45 @@
+<div class="login-page-wrap">
+    <div class="container">
+        <div class="login-box">
+            <div class="login-box-logo">
+                <img class="logo" src="https://freemansgroup.secure.force.com/dealers/resource/1591169466000/DP_AngularBase_v2/dist/freemans/assets/images/logo_fe.png" alt="freemans">
+            </div>
+            <div id="login-form" class="login-form-box">
+                <div class="login-box-title">Dealer Portal Login</div>
+                <form id="login" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="body">
+                        <div>
+                            <mat-form-field>
+                                <mat-label>USERNAME</mat-label>
+                                <input type="text" matInput formControlName="userName" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }">
+                                <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.userName.errors.required">User Name is required</div>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>PASSWORD</mat-label>
+                                <input type="password" matInput formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                        <div class="box-toggler">
+                            <a [routerLink]="['/forgot-password']" [state]="{ data: {type : 'reset'}}" class="link">Forgot password?</a>
+                        </div>
+                        <div class="lb-form-submit">
+                            <button class="btn btn-primary btn-block waves-effect waves-light">LOGIN</button>
+
+                        </div>
+                        <!-- <button class="btn btn-primary btn-block waves-effect waves-light">SIGN IN</button> -->
+                        <!-- <div class="signin_with mt-3">
+                            <a [routerLink]="['/signUp']" class="link">Not a member? Sign Up here.</a>
+                        </div> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

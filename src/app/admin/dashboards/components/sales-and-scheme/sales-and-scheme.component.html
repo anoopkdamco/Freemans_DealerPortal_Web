@@ -1,0 +1,94 @@
+<div *ngIf="loading" layout="row" layout-fill layout-align="center center" class="spinner-ctn text-center spinner-overlay">
+    <div>
+        <mat-spinner color="accent"></mat-spinner>
+    </div>
+</div>
+<div *ngIf="!loading">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <mat-toolbar>Sales and Schemes Performance</mat-toolbar>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="clearfix flexs-main">
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="qurtSales" [ngClass]="{'activeCard':activeTab=='quaterlySales'}" (click)="quaterlySales('quaterlySales')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">Quarterly Sales Performance</a></h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{qSales}}<small class="info"> Sales Achieved out of Quarterly Target of {{totalQSales}}</small></h2>
+                            <small>{{(hTarget * 100).toFixed(0)}}% of Quarterly Sales Target Achieved</small>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" attr.aria-valuenow="{{quaterlyAchieved}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalQuarterTarget}}" [style.width]="hTarget | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="annSales" [ngClass]="{'activeCard':activeTab=='annSales'}" (click)="annualSales('annSales')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">Annual Sales Performance</a></h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{annSales}}<small class="info"> Sales Achieved out of Annual Target of {{totalAnnSales}}</small></h2>
+                            <small>{{(dTotalAnnSales * 100).toFixed(0)}}% of Annual Sales Target Achieved</small>
+                            <div class="progress">
+                                <div class="progress-bar l-pink" role="progressbar" attr.aria-valuenow="{{annualAchieved}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalAnnualTarget}}" [style.width]="dTotalAnnSales | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="scheme" [ngClass]="{'activeCard':activeTab=='scheme'}" (click)="schemes('scheme')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">Schemes Performance</a></h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{schemeAchieved}}<small class="info"> Schemes Achieved out of {{totalSchemeTarget}} Launched</small></h2>
+                            <small>{{(dSchemes * 100).toFixed(0)}}% of Total Schemes Achieved</small>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" attr.aria-valuenow="{{schemeAchieved}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalSchemeTarget}}" [style.width]="dSchemes | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="card widget_2 text-center flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="co" [ngClass]="{'activeCard':activeTab=='co'}" (click)="createOrder('co')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">Create Order</a></h5>
+                            <div class="material-icons plusIcon">
+                                add_box
+                            </div>
+                            <div style="display:none;">
+                                <small>6% higher than last month</small>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="clearfix">
+            <div *ngIf="quatSale">
+                <app-quaterly-sales></app-quaterly-sales>
+            </div>
+            <div *ngIf="annualSale">
+                <app-annual-sales></app-annual-sales>
+            </div>
+            <div *ngIf="scheme">
+                <app-schemes></app-schemes>
+            </div>
+            <div *ngIf="newOrder">
+                <app-create-order [accountInfo]="accountInfo"></app-create-order>
+            </div>
+        </div>
+    </div>
+
+</div>

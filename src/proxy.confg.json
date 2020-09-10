@@ -1,0 +1,8 @@
+{
+    "/services/oauth2/token/*": {
+        "target": "https://test.salesforce.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

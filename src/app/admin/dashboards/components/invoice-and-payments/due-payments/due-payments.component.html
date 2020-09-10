@@ -1,0 +1,66 @@
+<div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="card project_list">
+        <h5 style="color: #ed3237">Due Payments</h5>
+        <div class="example-header">
+            <div style="font-size: 14px">
+                <mat-form-field appearance="outline" style="width: 250px;">
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search record from table">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="example-container mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                <ng-container matColumnDef="Buyer_PO_Number__c">
+                    <th mat-header-cell *matHeaderCellDef>Buyer Order #</th>
+                    <td mat-cell *matCellDef="let element">{{element.Buyer_PO_Number__c}}</td>
+                </ng-container>
+                <ng-container matColumnDef="PO_Date__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Buyer Order Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.PO_Date__c | date:'M/d/yyyy'}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Invoice #</th>
+                    <td mat-cell *matCellDef="let element" class="row-link" (click)="openInvoiceDialog(element)">{{element.Name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Invoice_Date__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Invoice Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.Invoice_Date__c | date:'M/d/yyyy' }}</td>
+                </ng-container>
+                <ng-container matColumnDef="Amount">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Grand Total</th>
+                    <td mat-cell *matCellDef="let element">{{element.Amount}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Balance">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Balance Due</th>
+                    <td mat-cell *matCellDef="let element">{{element.Balance}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Due_Date__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Due Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.Due_Date__c | date:'M/d/yyyy'}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Payment_Status__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Payment Status</th>
+                    <td mat-cell *matCellDef="let element">{{element.Payment_Status__c}}</td>
+                </ng-container>
+                <ng-container matColumnDef="OrderName">
+                    <th mat-header-cell *matHeaderCellDef>FMI Order #</th>
+                    <td mat-cell *matCellDef="let element">{{element.OrderName}}</td>
+                </ng-container>
+                <ng-container matColumnDef="LastName">
+                    <th mat-header-cell *matHeaderCellDef>Last Modify By</th>
+                    <td mat-cell *matCellDef="let element">{{element.LastName}}</td>
+                </ng-container>
+                <ng-container matColumnDef="LastModifiedDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Modified Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.LastModifiedDate | date:'M/d/yyyy h:mm a'}} </td>
+
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                </tr>
+            </table>
+            <mat-paginator class="page-width" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+</div>

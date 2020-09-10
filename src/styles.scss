@@ -1,0 +1,210 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* You can add global styles to this file, and also import other style files */
+
+@import 'src/assets/scss/main.scss';
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-toolbar {
+    min-height: 35px !important;
+    height: 35px !important;
+    background-color: #ed3237;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+.mat-toolbar-row {
+    min-height: 35px !important;
+    height: 35px !important;
+    background-color: #ed3237;
+}
+
+.col-equal-5 {
+    flex: 0 0 20%;
+    max-width: 20%;
+    padding: 0 5px;
+    .mat-form-field {
+        display: block;
+    }
+}
+
+.active {
+    background-color: #f3bdbd;
+}
+
+.col-equal-8 {
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+    padding: 0 5px;
+    .mat-form-field {
+        display: block;
+    }
+}
+
+.col-equal-7 {
+    flex: 0 0 14.28%;
+    max-width: 12.28%;
+    padding: 0 5px;
+    .mat-form-field {
+        display: block;
+    }
+}
+
+.col-equal-6 {
+    flex: 0 0 16.66%;
+    max-width: 16.66%;
+    padding: 0 5px;
+    .mat-form-field {
+        display: block;
+    }
+}
+
+.form-group {
+    margin-bottom: -4px;
+}
+
+.row-link {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.spinner-overlay {
+    height: 100vh;
+    padding-top: 20%;
+}
+
+mat-dialog-container .spinner-overlay {
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.mat-progress-spinner {
+    margin: auto;
+}
+
+.cardWrap-sm {
+    .card .body {
+        height: 158px;
+        padding: 20px 12px;
+    }
+    .widget_2 h2 {
+        font-size: 14px !important;
+    }
+}
+
+.cardWrap-lg {
+    .card .body {
+        height: 630px;
+        padding: 20px 12px;
+    }
+}
+
+.cardWrap-popup-sm {
+    margin-top: 15px;
+    .card .body {
+        height: 120px;
+        padding: 20px 12px;
+    }
+}
+
+.chartjs-render-monitor {
+    height: 600px;
+}
+
+// ::ng-deep {
+//     .cdk-global-overlay-wrapper .cdk-overlay-pane {
+//         width: 80vw !important;
+//     }
+// }
+// .cdk-global-overlay-wrapper .cdk-overlay-pane {
+//     width: 80vw !important;
+//     margin: auto !important;
+// }
+// .mat-snack-bar-container {
+//     margin: auto !important;
+// }
+.mat-form-field {
+    width: 100%;
+}
+
+.card.proDetailWrapper .row>div {
+    padding: 0 5px;
+    min-width: 98px;
+}
+
+@media all and (max-width:1300px) {
+    .cardWrap-sm [class*='col-'] {
+        max-width: 50% !important;
+        flex: 50%;
+    }
+}
+
+@media all and (max-width:992px) {
+    .mat-cell,
+    .mat-footer-cell {
+        font-size: 12px;
+        padding: 0 5px !important;
+    }
+}
+
+.mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+    color: rgba(0, 0, 0, .06);
+    background: #f3f3f3;
+}
+
+.mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after,
+.mat-input-element:disabled {
+    color: rgba(0, 0, 0, .75);
+}
+
+.example-container.mat-elevation-z8 {
+    overflow-x: auto;
+    background-color: #fff;
+}
+
+td.mat-cell,
+td.mat-footer-cell,
+th.mat-header-cell {
+    padding: 0px 10px !important;
+}
+
+td.mat-cell:first-of-type,
+td.mat-footer-cell:first-of-type,
+th.mat-header-cell:first-of-type {
+    padding-left: 10px !important;
+}
+
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type,
+th.mat-header-cell:last-of-type {
+    padding-right: 10px !important;
+}
+
+table.mat-table {
+    box-shadow: none !important;
+    width:100%;
+}
+.mat-header-cell { white-space:nowrap; }
+td.mat-cell:first-of-type { white-space: nowrap; }
+
+// .mat-dialog-container { width:90%; }
+.cdk-overlay-pane { max-width:100% !important; }
+
+.order-table .mat-form-field-infix { /*max-width:106px;*/ width:100%; font-size:12px; }
+.order-table .mat-cell { border-bottom:0px; }
+.order-table .mat-form-field-suffix { position:absolute; right:2px; top:16px !important; background-color:#fff; }
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label { font-weight:500; color:#000; }
+.mat-form-field-flex { align-items:center !important; }
+@media(max-width:1199px){
+.order-table .mat-form-field-infix { min-width:90px; }
+}

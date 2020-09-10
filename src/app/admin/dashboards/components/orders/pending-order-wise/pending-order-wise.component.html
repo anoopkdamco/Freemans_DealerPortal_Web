@@ -1,0 +1,57 @@
+<div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="card project_list">
+        <h5 style="color: #ed3237">Pending Order Item Wise</h5>
+        <div class="example-header">
+            <div style="font-size: 14px">
+                <mat-form-field appearance="outline" style="width: 250px;">
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search record from table">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="example-container mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                <ng-container matColumnDef="DP_OrderNO__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Order #</th>
+                    <td mat-cell *matCellDef="let element" class="row-link" (click)="openOrderDialog(element)"> {{element.DP_OrderNO__c}} </td>
+                </ng-container>
+                <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Line Item #</th>
+                    <td mat-cell *matCellDef="let element" class="row-link" (click)="openDialog(element)"> {{element.Name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="DP_Buyer_PO_Date__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Buyer PO Date</th>
+                    <td mat-cell *matCellDef="let element"> {{element.DP_Buyer_PO_Date__c | date:'M/d/yyyy'}} </td>
+                </ng-container>
+                <ng-container matColumnDef="DP_Product_Code__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Code</th>
+                    <td mat-cell *matCellDef="let element"> {{element.DP_Product_Code__c}} </td>
+                </ng-container>
+                <ng-container matColumnDef="DP_Product_Name__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</th>
+                    <td mat-cell *matCellDef="let element"> {{element.DP_Product_Name__c}} </td>
+                </ng-container>
+                <ng-container matColumnDef="Quantity__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Pending Qty</th>
+                    <td mat-cell *matCellDef="let element"> {{element.Quantity__c}} </td>
+                </ng-container>
+                <ng-container matColumnDef="DP_Age__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Age</th>
+                    <td mat-cell *matCellDef="let element">{{element.DP_Age__c}}</td>
+                </ng-container>
+                <ng-container matColumnDef="UnitPrice__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>List Price</th>
+                    <td mat-cell *matCellDef="let element">{{element.UnitPrice__c}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Discount__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Discount</th>
+                    <td mat-cell *matCellDef="let element">{{element.Discount__c}}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+</div>

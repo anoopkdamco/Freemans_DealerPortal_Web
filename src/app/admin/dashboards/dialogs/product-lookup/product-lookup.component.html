@@ -1,0 +1,13 @@
+<div class="block-header">
+    <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+            <h2 mat-dialog-title><span style="color: #ed3237">Product Name</span></h2>
+        </div>
+    </div>
+</div>
+<mat-dialog-content class="mat-typography">
+    <app-product-list [productList]="productList" (selectedProduct)="getSelectedProduct($event)"></app-product-list>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>

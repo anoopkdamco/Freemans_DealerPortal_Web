@@ -1,0 +1,20 @@
+.activeCard {
+    background-color: #f3bdbd !important;
+}
+
+.box-link:hover {
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-header-cell {
+    background-color: #ed3237;
+    color: whitesmoke;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: #f7f7f7;
+}

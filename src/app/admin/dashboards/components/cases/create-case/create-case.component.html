@@ -1,0 +1,174 @@
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="header">
+            <h5 style="color: #ed3237">Create New Case</h5>
+        </div>
+    </div>
+</div>
+<form [formGroup]="additionalInfo" novalidate>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="header">
+                    <mat-toolbar>Case Information</mat-toolbar>
+                </div>
+                <div class="body">
+                    <div class="card">
+                        <div class="example-container">
+                            <div class="row clearfix" style="font-size: 12px">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Account Name</mat-label>
+                                            <input matInput formControlName="accountName">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Contact Name</mat-label>
+                                            <input matInput formControlName="contactName">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Status</mat-label>
+                                            <input matInput formControlName="status">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix" style="font-size: 12px">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Case Origin</mat-label>
+                                            <input matInput formControlName="caseOrigin">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Select Type</mat-label>
+                                            <mat-select formControlName="type" required name="type">
+                                                <mat-option required *ngFor="let type of types" [value]="type">
+                                                    {{type}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                                                <div *ngIf="f.type.errors.required">Type is required</div>
+                                            </div>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Select Sub-Type</mat-label>
+                                            <mat-select readonly="subTypes == ''" formControlName="subType" name="subType">
+                                                <mat-option *ngFor="let subType of subTypes" [value]="subType">
+                                                    {{subType}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="header">
+                    <mat-toolbar>Additional Information</mat-toolbar>
+                </div>
+                <div class="body">
+                    <div class="card">
+                        <div class="example-container">
+                            <div class="row clearfix" style="font-size: 12px">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Priority</mat-label>
+                                            <mat-select formControlName="priority" name="prio">
+                                                <mat-option *ngFor="let prio of priorities" [value]="prio.value">
+                                                    {{prio.viewValue}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Product</mat-label>
+                                            <input matInput (mouseup)="enter()" [readonly]="true" formControlName="productName">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Product Quantity</mat-label>
+                                            <input matInput (keypress)="numberOnly($event)" formControlName="productQty">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix" style="font-size: 12px">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Transport Company Name</mat-label>
+                                            <input matInput formControlName="transportCompany">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Tracking Number</mat-label>
+                                            <input matInput formControlName="trackingnumber">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Credit Note Number</mat-label>
+                                            <input formControlName="creditNote" matInput>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix" style="font-size: 12px">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Description</mat-label>
+                                            <textarea matInput formControlName="description"></textarea>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <button style="background-color: #ed3237" (click)="saveCaseData()" [disabled]="save" class="btn btn-raised btn-primary waves-effect" type="submit">Submit</button>
+        </div>
+    </div>
+
+</form>

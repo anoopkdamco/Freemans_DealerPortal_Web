@@ -1,0 +1,320 @@
+<div class="block-header">
+    <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+            <h2 mat-dialog-title>Invoice <span style="color: #ed3237"> {{invoiceNo}}</span></h2>
+        </div>
+    </div>
+</div>
+<mat-dialog-content class="mat-typography">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <mat-tab-group class="nav nav-tabs pl-0 pr-0">
+                        <mat-tab class="nav-link active" label="Details">
+                            <mat-toolbar>Information</mat-toolbar>
+                            <div class="card">
+                                <div class="body">
+                                    <div class="example-container">
+                                        <form [formGroup]="infoForm">
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Invoice #</mat-label>
+                                                        <input matInput formControlName="invoice">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>FMI Invoice #</mat-label>
+                                                        <input matInput formControlName="busyErp">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Account</mat-label>
+                                                        <input matInput formControlName="account">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>FMI Order #</mat-label>
+                                                        <input matInput formControlName="fmiOrder">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Invoice Date</mat-label>
+                                                        <input matInput [matDatepicker]="picker3" formControlName="invoiceDate">
+                                                        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                                        <mat-datepicker #picker3></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Due Date</mat-label>
+                                                        <input matInput [matDatepicker]="picker1" formControlName="dueDate">
+                                                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                        <mat-datepicker #picker1></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Buyer PO #</mat-label>
+                                                        <input matInput formControlName="po">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Amount</mat-label>
+                                                        <input matInput formControlName="amount">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Buyer PO Date</mat-label>
+                                                        <input matInput [matDatepicker]="picker2" formControlName="poDate">
+                                                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                                        <mat-datepicker #picker2></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Balance</mat-label>
+                                                        <input matInput formControlName="balance">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping Charge</mat-label>
+                                                        <input matInput formControlName="shippingCharge">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Payment Status</mat-label>
+                                                        <input matInput formControlName="paymentStatus">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Buyer Order Number</mat-label>
+                                                        <input matInput formControlName="buyerOrderNo">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Buyer Order Date</mat-label>
+                                                        <input matInput [matDatepicker]="picker4" formControlName="buyerOrderDate">
+                                                        <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                                                        <mat-datepicker #picker4></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Posting Date</mat-label>
+                                                        <input matInput [matDatepicker]="picker5" formControlName="postingDate">
+                                                        <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                                                        <mat-datepicker #picker5></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Payment Duration Days</mat-label>
+                                                        <input matInput formControlName="paymentDays">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <mat-toolbar>Tax Details</mat-toolbar>
+                            <div class="card">
+                                <div class="body">
+                                    <div class="example-container">
+                                        <form [formGroup]="taxForm">
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>CGST %</mat-label>
+                                                        <input matInput formControlName="cgst">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>CGST Amount</mat-label>
+                                                        <input matInput formControlName="cgstAmount">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>SGST %</mat-label>
+                                                        <input matInput formControlName="sgst">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>SGST Amount</mat-label>
+                                                        <input matInput formControlName="sgstAmount">
+                                                    </mat-form-field>
+                                                </div>
+
+                                            </div>
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>IGST %</mat-label>
+                                                        <input matInput formControlName="igst">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>IGST Amount</mat-label>
+                                                        <input matInput formControlName="igstAmount">
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>UTGST Amount</mat-label>
+                                                        <input matInput formControlName="utgstAmount">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <mat-toolbar>Address</mat-toolbar>
+                            <div class="card">
+                                <div class="body">
+                                    <div class="example-container">
+                                        <form [formGroup]="addressForm">
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Billing Street</mat-label>
+                                                        <input matInput formControlName="billingStreet">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Billing City</mat-label>
+                                                        <input matInput formControlName="billingCity">
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Billing State/Province</mat-label>
+                                                        <input matInput formControlName="billingState">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Billing Zip/Postal Code</mat-label>
+                                                        <input matInput formControlName="billingPostalCode">
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Billing Country</mat-label>
+                                                        <input matInput formControlName="billingCountry">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping Street</mat-label>
+                                                        <input matInput formControlName="shippingStreet">
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping City</mat-label>
+                                                        <input matInput formControlName="shippingCity">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping State/Province</mat-label>
+                                                        <input matInput formControlName="shippingState">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping Zip/Postal Code</mat-label>
+                                                        <input matInput formControlName="shippingPostalCode">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping Country</mat-label>
+                                                        <input matInput formControlName="shippingCountry">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </mat-tab>
+                        <mat-tab class="nav-link active" label="Related">
+                            <div *ngIf="loading" layout="row" layout-fill layout-align="center center" class="spinner-ctn text-center spinner-overlay">
+                                <div>
+                                    <mat-spinner color="accent"></mat-spinner>
+                                </div>
+                            </div>
+                            <div *ngIf="!loading">
+                                <mat-toolbar>Notes and Attachments</mat-toolbar>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Attachment</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let file of listInvoiceFileData">
+                                                <td><code class="w3-codespan">{{file.FileName}}</code></td>
+                                                <td *ngIf="file.FileType == 'PDF'">
+                                                    <i class="fa fa-file-pdf-o doc-link" (click)="downloadPdf(file.FileData, file.FileName, file.FileType)" aria-hidden="true"> {{file.FileName}}</i></td>
+                                                <td *ngIf="file.FileType == 'TEXT'">
+                                                    <i class="fa fa-file-text-o doc-link" (click)="downloadPdf(file.FileData, file.FileName, file.FileType)" aria-hidden="true"> {{file.FileName}}</i>
+                                                </td>
+                                                <td *ngIf="(file.FileType != 'PDF') && (file.FileType != 'TEXT')">
+                                                    <i class="fa fa-file-image-o doc-link" (click)="downloadPdf(file.FileData, file.FileName, file.FileType)" aria-hidden="true"> {{file.FileName}}</i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,37 @@
+export interface ICase {
+Account: {};
+Age__c: number;
+AccountId: string;
+Account_Email__c: string;
+CaseNumber: string;
+ClosedDate: string;
+Contact: {};
+ContactEmail: string;
+ContactId: string;
+ContactPhone: string;
+CreatedDate: string;
+CreatedById: string;
+Credit_Note_Number__c: string;
+Date_of_Complaint__c: string;
+Description: string;
+Feedback_Rating__c: string;
+Id: string;
+LastModifiedBy: {};
+LastModifiedById: string;
+LastModifiedDate: string;
+Origin: string;
+Owner: {};
+OwnerId: string;
+Parent: {};
+ParentId: string;
+Priority: string;
+Product__c: string;
+Product__r: {};
+Rating__c: number;
+Status: string;
+Sub_Type__c: string;
+SuppliedEmail: string;
+Tracking_Number__c: string;
+Transport_Company_Name__c: string;
+Type: string;
+}

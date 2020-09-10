@@ -1,0 +1,220 @@
+<div class="block-header">
+    <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+            <h2 mat-dialog-title>Scheme <span style="color: #ed3237">{{schemeName}}</span></h2>
+        </div>
+    </div>
+</div>
+<mat-dialog-content class="mat-typography">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="card">
+                    <mat-tab-group class="nav nav-tabs pl-0 pr-0">
+                        <mat-tab class="nav-link active" label="Details">
+                            <form [formGroup]="schemeDataForm">
+                                <div class="card">
+                                    <div class="header">
+                                        <mat-toolbar> Scheme Information</mat-toolbar>
+                                    </div>
+                                    <div class="body">
+                                        <div class="card">
+                                            <div class="example-container">
+                                                <div class="row clearfix" style="font-size: 12px">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <mat-form-field appearance="outline">
+                                                                <mat-label>Scheme #</mat-label>
+                                                                <input matInput formControlName="scheme">
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <mat-form-field appearance="outline">
+                                                                <mat-label>Title</mat-label>
+                                                                <input matInput formControlName="title">
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <mat-form-field appearance="outline">
+                                                                <mat-label>Scheme Type</mat-label>
+                                                                <input matInput formControlName="schemeType">
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row clearfix" style="font-size: 12px">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <mat-form-field appearance="outline">
+                                                                <mat-label>Start Date</mat-label>
+                                                                <input matInput [matDatepicker]="picker1" formControlName="startDate">
+                                                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                                <mat-datepicker #picker1></mat-datepicker>
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <mat-form-field appearance="outline">
+                                                                <mat-label>End Date</mat-label>
+                                                                <input matInput [matDatepicker]="picker2" formControlName="endDate">
+                                                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                                                <mat-datepicker #picker2></mat-datepicker>
+                                                            </mat-form-field>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header">
+                                    <mat-toolbar>Scheme Products</mat-toolbar>
+                                </div>
+                                <div class="body">
+                                    <div class="card">
+                                        <div class="example-container">
+                                            <div class="row clearfix" style="font-size: 12px">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Product 1</mat-label>
+                                                            <input matInput formControlName="prod1">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Product 2</mat-label>
+                                                            <input matInput formControlName="prod2">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Product 3</mat-label>
+                                                            <input matInput formControlName="prod3">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix" style="font-size: 12px">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Product 4</mat-label>
+                                                            <input matInput formControlName="prod4">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Product 5</mat-label>
+                                                            <input matInput formControlName="prod5">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Product 6</mat-label>
+                                                            <input matInput formControlName="prod6">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header">
+                                    <mat-toolbar> Scheme Slabs</mat-toolbar>
+                                </div>
+                                <div class="body">
+                                    <div class="card">
+                                        <div class="example-container">
+                                            <div class="row clearfix" style="font-size: 12px">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Condition 1</mat-label>
+                                                            <input matInput formControlName="cond1">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Condition 2</mat-label>
+                                                            <input matInput formControlName="cond2">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Condition 3 </mat-label>
+                                                            <input matInput formControlName="cond3">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row clearfix" style="font-size: 12px">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Value 1</mat-label>
+                                                            <input matInput formControlName="value1">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Value 2</mat-label>
+                                                            <input matInput formControlName="value2">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-label>Value 3</mat-label>
+                                                            <input matInput formControlName="value3">
+                                                        </mat-form-field>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </mat-tab>
+                        <mat-tab class="nav-link active" label="Related">
+                            <div *ngFor="let item of listSchemeFilesData">
+                                <mat-toolbar>{{item.FileName}}</mat-toolbar>
+                                <div class="card">
+                                    <div class="body">
+                                        <div class="example-container">
+                                            <img id="invoiceImage" [src]="item.ImageData" [alt]="item.FileName" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>

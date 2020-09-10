@@ -1,0 +1,130 @@
+<div class="block-header">
+    <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+            <h2 mat-dialog-title>FMI Order Line Item<span style="color: #ed3237"> {{lineItemName}}</span></h2>
+        </div>
+    </div>
+</div>
+<mat-dialog-content class="mat-typography">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <mat-toolbar>Information</mat-toolbar>
+                <div class="card">
+                    <div class="body">
+                        <form [formGroup]="lineItemForm">
+                            <div class="row" style="font-size: 12px">
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Order Line Item #</mat-label>
+                                        <input matInput readonly formControlName="orderLineItem">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>FMI Product</mat-label>
+                                        <input matInput readonly formControlName="fmiProduct">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>FMI Order</mat-label>
+                                        <input matInput readonly formControlName="fmiOrder">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Unit Price</mat-label>
+                                        <input matInput readonly [value]="lineItemForm.get('unitPrice').value | currency:'&#8377;'" formControlName="unitPrice">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Quantity</mat-label>
+                                        <input matInput readonly formControlName="quantity">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" style="font-size: 12px">
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Discount</mat-label>
+                                        <input matInput readonly [value]="lineItemForm.get('discount').value | currency:'&#8377;'" formControlName="discount">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Subtotal</mat-label>
+                                        <input matInput readonly [value]="lineItemForm.get('subTotal').value | currency:'&#8377;'" formControlName="subTotal">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Additional Discount</mat-label>
+                                        <input matInput readonly [value]="lineItemForm.get('additionalDiscount').value | currency:'&#8377;'" formControlName="additionalDiscount">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>GST</mat-label>
+                                        <input matInput readonly [value]="lineItemForm.get('gst').value | currency:'&#8377;'" formControlName="gst">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Total Discount</mat-label>
+                                        <input matInput readonly [value]="lineItemForm.get('totalDiscount').value | currency:'&#8377;'" formControlName="totalDiscount">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row" style="font-size: 12px">
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Total GST</mat-label>
+                                        <input matInput readonly [value]="lineItemForm.get('totalGst').value | currency:'&#8377;'" formControlName="totalGst">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Price After Discount</mat-label>
+                                        <input matInput readonly [value]="lineItemForm.get('priceAfterDiscount').value | currency:'&#8377;'" formControlName="priceAfterDiscount">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-sm-3 col-equal-5">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Total Price</mat-label>
+                                        <input matInput readonly [value]="lineItemForm.get('totalPrice').value | currency:'&#8377;'" formControlName="totalPrice">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <mat-toolbar> System Information</mat-toolbar>
+                <div class="card">
+                    <div class="body">
+                        <div class=row>
+                            <div class="col-sm-6">
+                                <span style="color: #ed3237; font-size: 14px;">Created By</span>
+                                <div>
+                                    <span class="createdBy">{{createdBy}},</span> {{createdDate | date:'M/d/yyyy h:mm a'}}
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <span style="color: #ed3237; font-size: 14px;">Last Modified By</span>
+                                <div><span class="createdBy">{{lastModifiedBy}},</span> {{lastModifiedDate | date:'M/d/yyyy h:mm a' }}</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>

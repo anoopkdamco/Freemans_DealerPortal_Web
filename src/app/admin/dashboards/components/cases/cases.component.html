@@ -1,0 +1,107 @@
+<div *ngIf="loading" layout="row" layout-fill layout-align="center center" class="spinner-ctn text-center spinner-overlay">
+    <div>
+        <mat-spinner color="accent"></mat-spinner>
+    </div>
+</div>
+<div *ngIf="!loading">
+
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <mat-toolbar>Cases</mat-toolbar>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="clearfix flexs-main">
+
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="allCases" [ngClass]="{'activeCard':activeTab=='allcases'}" (click)="allCases('allcases')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237"> All Cases</a></h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{dealerPortalCases}}<small class="info"> Cases Created on the Dealer Portal out of {{totalCase}} Total</small></h2>
+                            <small>{{(tClosedCases * 100).toFixed(0)}}% of Total Cases were created on the Dealer Portal</small>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" attr.aria-valuenow="{{dealerPortalCases}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalCase}}" [style.width]="tClosedCases | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="open" [ngClass]="{'activeCard':activeTab=='open'}" (click)="openCases('open')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">All Open Cases</a></h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{casesInSevenDays}}<small class="info"> Cases Closed in <= 7 Days out of {{totalCasesClosed}} Total</small></h2>
+                            <small>{{(tSevenDaysCases * 100).toFixed(0)}}% of Closed Cases were closed in <= 7 Days</small>
+                            <div style="visibility: hidden;">
+                                <small>6% higher than last month</small>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar l-pink" role="progressbar" attr.aria-valuenow="{{casesInSevenDays}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalCasesClosed}}" [style.width]="tSevenDaysCases | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="close" [ngClass]="{'activeCard':activeTab=='close'}" (click)="closedCases('close')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;">All Closed Cases</h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{totalCasesClosed}}<small class="info"> Cases Closed out of {{totalCase}} Total</small></h2>
+                            <small>{{(tAllCase * 100).toFixed(0)}}% of Total Cases Closed</small>
+                            <div style="visibility: hidden;">
+                                <small>6% higher than last month</small>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" attr.aria-valuenow="{{totalCasesClosed}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalCase}}" [style.width]="tAllCase | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="card widget_2 text-center flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="create" [ngClass]="{'activeCard':activeTab=='create'}" (click)="createCases('create')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237; font-size: 14px;"><a style="color: #ed3237">Create Case</a></h5>
+                            <div class="material-icons plusIcon">
+                                add_box
+                            </div>
+                            <div style="display:none;">
+                                <small>6% higher than last month</small>
+                                <small>6% higher than last month</small>
+                                <small>6% higher than last month</small>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
+        </div>
+
+        <div class="clearfix">
+            <div *ngIf="all_cases">
+                <app-all-cases [casesRecords]="casesRecords"></app-all-cases>
+            </div>
+            <div *ngIf="create_case">
+                <app-create-case [newCase]="create_case" (saveNewCase)="getCreatedCase($event)" [accountInfo]="accountInfo"></app-create-case>
+            </div>
+            <div *ngIf="open_cases">
+                <app-all-open-cases [casesRecords]="casesRecords"></app-all-open-cases>
+            </div>
+            <div *ngIf="close_cases">
+                <app-all-closed-cases [casesRecords]="casesRecords"></app-all-closed-cases>
+            </div>
+        </div>
+    </div>
+
+</div>

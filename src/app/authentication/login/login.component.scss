@@ -1,0 +1,115 @@
+.mar {
+    margin-top: 50px;
+}
+
+.login-page-wrap {
+    background: url(https://damco-freemansgroup.cs76.force.com/resource/1591169466000/DP_AngularBase_v2/dist/freemans/assets/images/freemans-bg-img.jpg) no-repeat center #000;
+    background-size: cover;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.login-page-wrap .login-box {
+    background: #fff;
+    padding: 50px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 5px;
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+}
+
+.login-page-wrap .login-box-logo {
+    text-align: center;
+    margin: 0 0 45px;
+    padding: 0 15px;
+}
+
+.login-page-wrap .login-box-title {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 20px;
+    padding: 0 0 25px;
+}
+
+.login-page-wrap .login-box-title:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #ed3237;
+    margin: 15px 0 0;
+    border-radius: 5px;
+}
+
+login-page-wrap .lb-form-item {
+    margin: 20px 0 50px;
+    position: relative;
+}
+
+.login-page-wrap .lb-form-item input {
+    outline: none;
+    border-width: 0 0 1px;
+    border-style: solid;
+    padding: 0 0 11px;
+    border-color: #d9d9d9;
+    width: 100%;
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+    color: #454545;
+    background: #fff;
+}
+
+.login-page-wrap .box-toggler {
+    font-weight: 500;
+    font-size: 13px;
+    text-align: right;
+    color: #454545;
+}
+
+.login-page-wrap .lb-form-submit {
+    margin: 25px 0 0;
+}
+
+login-page-wrap .lb-form-submit button {
+    display: block;
+    width: 100%;
+    background: #ed3237;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-shadow: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 18px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: "Montserrat", sans-serif;
+    opacity: 1;
+    border-radius: 4px;
+    line-height: 1;
+    outline: none;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #ed3237;
+    color: #FFFFFF;
+    height: 50px;
+}

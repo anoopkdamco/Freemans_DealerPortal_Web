@@ -1,0 +1,38 @@
+<aside id="leftsidebar" class="sidebar">
+    <div class="navbar-brand">
+        <button class="btn-menu ls-toggle-btn" type="button" (click)="toggleSmallMenu()"><i class="zmdi zmdi-menu"></i></button>
+        <!--For development uncomment it-->
+        <!-- <a href="index.html"><img src="assets/images/logo_fe.png" alt=""><span class="m-l-10"></span></a> -->
+
+        <!--For Production uncomment it-->
+        <img src="https://freemansgroup.secure.force.com/dealers/resource/1591169466000/DP_AngularBase_v2/dist/freemans/assets/images/logo_fe.png" alt=""><span class="m-l-10"></span>
+    </div>
+    <div *ngIf="dataVal" class="menu">
+        <mat-selection-list class="list">
+            <mat-list-option [routerLinkActive]="['active']">
+                <a [routerLink]="['/freemans/dashboard/home']" class="toggled waves-effect waves-block"><i class="zmdi zmdi-home"></i><span>Home</span></a>
+            </mat-list-option>
+            <mat-list-option [routerLinkActive]="['active']">
+                <a [routerLink]="['/freemans/dashboard/orders']" class="toggled waves-effect waves-block"><i class="zmdi zmdi-shopping-cart"></i><span>Orders</span></a>
+            </mat-list-option>
+            <mat-list-option [routerLinkActive]="['active']">
+                <a [routerLink]="['/freemans/dashboard/sales']" class="toggled waves-effect waves-block"><i class="zmdi zmdi-folder"></i><span>Sales & Schemes Performance</span></a>
+            </mat-list-option>
+            <mat-list-option [routerLinkActive]="['active']">
+                <a [routerLink]="['/freemans/dashboard/invoice']" class="toggled waves-effect waves-block"><i class="zmdi zmdi-assignment"></i><span>Invoices and Payments</span></a>
+            </mat-list-option>
+            <mat-list-option [routerLinkActive]="['active']">
+                <a [routerLink]="['/freemans/dashboard/cases']" class="toggled waves-effect waves-block"><i class="zmdi zmdi-blogger"></i><span>Cases</span></a>
+            </mat-list-option>
+            <mat-list-option [routerLinkActive]="['active']">
+                <a [routerLink]="['/freemans/dashboard/accountDetails']" class="toggled waves-effect waves-block"><i class="zmdi zmdi-account"></i><span>Account Details</span></a>
+            </mat-list-option>
+            <mat-list-option [routerLinkActive]="['active']">
+                <a [routerLink]="['/freemans/dashboard/contactUs']" [state]="{data: accountId}" class="toggled waves-effect waves-block"><i class="zmdi zmdi-apps"></i><span>Contact Us</span></a>
+            </mat-list-option>
+            <mat-list-option [routerLinkActive]="['active']">
+                <a (click)="getSignOut()" class="toggled waves-effect waves-block"><i class="zmdi zmdi-power"></i><span>Sign Out</span></a>
+            </mat-list-option>
+        </mat-selection-list>
+    </div>
+</aside>

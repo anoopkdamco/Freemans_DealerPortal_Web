@@ -1,0 +1,33 @@
+#leftsidebar .list {
+    overflow-y: scroll;
+    width: auto;
+    height: calc(100vh - 65px);
+    scrollbar-width: none;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+    &::-webkit-scrollbar {
+        width: 0px;
+        /* For Chrome, Safari, and Opera */
+    }
+}
+
+::ng-deep .mat-list-option .mat-pseudo-checkbox {
+    display: none;
+}
+
+.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {height: auto;}
+.mat-list-base .mat-list-option {font-size: 14px;}
+.sidebar .menu .list a {padding: 10px;}
+.sidebar .menu .list a i {float: left;}
+.sidebar .menu .list a span {margin-left: 10px; float: left; width: calc(100% - 30px);}
+
+::ng-deep {
+    .mat-list-base .mat-list-item .mat-list-item-content-reverse, 
+    .mat-list-base .mat-list-option .mat-list-item-content-reverse {
+        padding: 0 0 0 5px !important;
+    }
+    .ls-toggle-menu img {
+        max-width: 0%;
+    }
+}

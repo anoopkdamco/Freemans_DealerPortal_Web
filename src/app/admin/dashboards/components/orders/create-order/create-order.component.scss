@@ -1,0 +1,42 @@
+.example-container .mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+.example-container .mat-form-field {
+    width: 100%;
+}
+
+.example-container form {
+    margin-bottom: 10px;
+}
+
+.example-container form>* {
+    margin: 5px 0;
+}
+
+.example-form {
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.example-half-width {
+    width: 50%;
+}
+
+table {
+    table-layout: auto;
+    width: 100%;
+}
+.order-table tbody tr td { padding:0px 5px; }
+.order-table thead tr th { padding:0px 5px; font-weight:500; font-size:12px; }
+.order-table .mat-icon { font-size:18px; }
+.order-table tbody tr td:first-child , .order-table thead tr th:first-child { padding-left:0px; }
+.order-table tbody tr td:last-child , .order-table thead tr th:last-child { padding-right:0px; }
+.create-order-wrap .table-responsive { margin-bottom:15px; }
+.pro-name-option { padding:0px 5px; font-size:12px; }
+.order-table thead tr th:first-child { min-width:240px; }
+
+.order-table .discount-field , .order-table .gst-field , .order-table .qty-field { width:95px; }

@@ -1,0 +1,85 @@
+<div class="block-header">
+    <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+            <h4 mat-dialog-title>Exhibition Name <span style="color: #ed3237"> {{exhibitionName}}</span></h4>
+        </div>
+    </div>
+</div>
+<mat-dialog-content class="mat-typography">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <form [formGroup]="exhibitionDataForm">
+                        <div class="card">
+                            <div class="header">
+                                <mat-toolbar> Exhibition Information</mat-toolbar>
+                            </div>
+                            <div class="body">
+                                <div class="card">
+                                    <div class="example-container">
+                                        <div class="row clearfix" style="font-size: 12px">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Exhbition Booth #</mat-label>
+                                                        <input matInput readonly formControlName="exBooth">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Exhibition Hall #</mat-label>
+                                                        <input matInput readonly formControlName="exHall">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Exhibition Address</mat-label>
+                                                        <input matInput readonly formControlName="exAdd">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row clearfix" style="font-size: 12px">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>ExhibitionCity</mat-label>
+                                                        <input matInput readonly formControlName="exCity">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Exhibition State</mat-label>
+                                                        <input matInput readonly formControlName="exState">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Exhibition Country</mat-label>
+                                                        <input matInput readonly formControlName="exCountry">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,270 @@
+<!-- <h2 mat-dialog-title>Install Angular</h2> -->
+<div class="block-header">
+    <div class="row">
+        <div class="col-lg-7 col-md-6 col-sm-12">
+            <h2 mat-dialog-title>Order <span style="color: #ed3237">{{orderNo}}</span></h2>
+        </div>
+    </div>
+</div>
+<mat-dialog-content class="mat-typography">
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <mat-tab-group class="nav nav-tabs pl-0 pr-0">
+                        <mat-tab class="nav-link active" label="Details">
+                            <mat-toolbar>Information</mat-toolbar>
+                            <div class="card">
+                                <div class="body">
+                                    <div class="example-container">
+                                        <form [formGroup]="infoForm">
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Buyer PO Date</mat-label>
+                                                        <input matInput [matDatepicker]="picker1" formControlName="buyerDate">
+                                                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                        <mat-datepicker #picker1></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Buyer PO #</mat-label>
+                                                        <input matInput formControlName="buyerPo">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Order #</mat-label>
+                                                        <input matInput formControlName="order">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>ERP Order Number</mat-label>
+                                                        <input matInput formControlName="erp">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Customer Type</mat-label>
+                                                        <input matInput formControlName="customerType">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Account Name</mat-label>
+                                                        <input matInput formControlName="owner">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Total Price</mat-label>
+                                                        <input matInput formControlName="totalPrice">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Total GST</mat-label>
+                                                        <input matInput formControlName="totalGst">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Grand Total</mat-label>
+                                                        <input matInput formControlName="grandTotal">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Original Order</mat-label>
+                                                        <input matInput formControlName="originalOrder">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <mat-toolbar>Tracking Details</mat-toolbar>
+                            <div class="card">
+                                <div class="body">
+                                    <div class="example-container">
+                                        <form [formGroup]="infoForm">
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>Invoice Courier Tracking URL</mat-label>
+                                                        <input matInput formControlName="invoiceUrl">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>Invoice Courier Tracking Number</mat-label>
+                                                        <input matInput formControlName="invoiceTracking">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>LR Courier Tracking URL</mat-label>
+                                                        <input matInput formControlName="lrUrl">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 p-l-5 p-r-5">
+                                                    <mat-form-field appearance="outline" class="d-block">
+                                                        <mat-label>LR Courier Tracking Number</mat-label>
+                                                        <input matInput formControlName="lrTracking">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <mat-toolbar>Address</mat-toolbar>
+                            <div class="card">
+                                <div class="body">
+                                    <div class="example-container">
+                                        <form [formGroup]="infoForm">
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Billing Street</mat-label>
+                                                        <input matInput formControlName="billingStreet">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Billing City</mat-label>
+                                                        <input matInput formControlName="billingCity">
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Billing State/Province</mat-label>
+                                                        <input matInput formControlName="billingState">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Billing Zip/Postal Code</mat-label>
+                                                        <input matInput formControlName="billingZip">
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Billing Country</mat-label>
+                                                        <input matInput formControlName="billingCountry">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="font-size: 12px">
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping Street</mat-label>
+                                                        <input formControlName="shippingStreet" matInput>
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping City</mat-label>
+                                                        <input matInput formControlName="shippingCity">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping State/Province</mat-label>
+                                                        <input matInput formControlName="shippingState">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping Zip/Postal Code</mat-label>
+                                                        <input matInput formControlName="shippingZip">
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-sm-3 col-equal-5">
+                                                    <mat-form-field appearance="outline">
+                                                        <mat-label>Shipping Country</mat-label>
+                                                        <input matInput formControlName="shippingCountry">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </mat-tab>
+                        <mat-tab class="nav-link active" label="Related">
+                            <div class="container-fluid">
+                                <div class="row clearfix cardWrap-popup-sm">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="card widget_2 ">
+                                            <mat-card class="body activeCard box-link" id="allLineItem" [ngClass]="{'activeCard':activeTab=='orderLine'}" (click)="openOrderLine('orderLine')">
+                                                <mat-card-content>
+                                                    <h5 style="color: #ed3237; font-size: 14px;">Order Line Items</h5>
+                                                    <h2 style=" color: #8f98ec; font-size: 16px;"><small class="info">Total Order Line Items {{totalOrderItem}}</small></h2>
+                                                </mat-card-content>
+                                            </mat-card>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="card widget_2">
+                                            <mat-card class="body activeCard box-link" id="invoice" [ngClass]="{'activeCard':activeTab=='invoice'}" (click)="openInvoice('invoice')">
+                                                <mat-card-content>
+                                                    <h5 style="color: #ed3237; font-size: 14px;">Invoices</h5>
+                                                    <h2 style=" color: #8f98ec; font-size: 16px;"><small class="info">Total Invoices {{totalInvocieItem}}</small></h2>
+                                                </mat-card-content>
+                                            </mat-card>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
+                                        <div class="card widget_2">
+                                            <mat-card class="body activeCard box-link" id="oriOrder" [ngClass]="{'activeCard':activeTab=='oriOrder'}" (click)="openOriginalOrder('oriOrder')">
+                                                <mat-card-content>
+                                                    <h5 style="color: #ed3237; font-size: 14px;">Original Orders</h5>
+                                                    <h2 style=" color: #8f98ec; font-size: 16px;"><small class="info"> Total Original Orders {{totalOriginalItem}} </small></h2>
+                                                </mat-card-content>
+                                            </mat-card>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="clearfix">
+                                    <div *ngIf="allOrderLine">
+                                        <app-order-line-list [orderRelatedData]="orderRelatedData"></app-order-line-list>
+                                    </div>
+                                    <div *ngIf="originalOrder">
+                                        <app-original-order [originalOrders]="originalOrders"></app-original-order>
+                                    </div>
+                                    <div *ngIf="invoice">
+                                        <app-order-invoice [orderInvoive]="invoiceRelatedData"></app-order-invoice>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Close</button>
+</mat-dialog-actions>

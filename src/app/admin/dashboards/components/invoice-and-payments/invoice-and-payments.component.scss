@@ -1,0 +1,24 @@
+.activeCard {
+    background-color: #f3bdbd !important;
+}
+
+.box-link:hover {
+    cursor: pointer;
+}
+
+.card-content-wrap {
+    min-height: 130px;
+}
+
+.flexs-main { display:flex; flex-wrap: wrap; margin:0px -15px; }
+.flex-card-wrap { flex:1; margin:0px 15px; margin-bottom:15px; }
+.flexs-main .card .body { padding:20px 12px; height:100% !important; }
+.flex-card-wrap .progress { position:absolute; bottom:15px; left:10px; right:10px; }
+
+@media(max-width:1299px){
+    .flex-card-wrap { flex: calc(50% - 30px); }
+}
+@media(max-width:767px){
+    .flexs-main { margin:0px; }
+    .flex-card-wrap { flex: calc(100% - 0px); margin-left: 0; margin-right: 0; }
+}

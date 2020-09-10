@@ -1,0 +1,43 @@
+<div *ngIf="loading" layout="row" layout-fill layout-align="center center" class="spinner-ctn text-center spinner-overlay">
+    <div>
+        <mat-spinner color="accent"></mat-spinner>
+    </div>
+</div>
+<div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="card project_list">
+        <h6 style="color: #ed3237">Original Orders</h6>
+        <span>{{message}}</span>
+        <div class="example-container mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Original Order #</th>
+                    <td mat-cell *matCellDef="let element"> {{element.Name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Buyer_PO_Date__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Buyer PO Date</th>
+                    <td mat-cell *matCellDef="let element"> {{element.Buyer_PO_Date__c | date:'M/d/yyyy'}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Buyer PO #</th>
+                    <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+                </ng-container>
+                <ng-container matColumnDef="TotalPrice__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Price</th>
+                    <td mat-cell *matCellDef="let element"> {{element.TotalPrice__c}} </td>
+                </ng-container>
+                <ng-container matColumnDef="TotalGST__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Total GST</th>
+                    <td mat-cell *matCellDef="let element"> {{element.TotalGST__c}} </td>
+                </ng-container>
+                <ng-container matColumnDef="GrandTotal__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Grand Total</th>
+                    <td mat-cell *matCellDef="let element"> {{element.GrandTotal__c}} </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayOriginalOrder"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayOriginalOrder;">
+                </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+</div>

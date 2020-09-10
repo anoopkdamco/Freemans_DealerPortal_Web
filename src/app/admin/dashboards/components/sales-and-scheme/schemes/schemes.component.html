@@ -1,0 +1,63 @@
+<div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="card project_list">
+        <h5 style="color: #ed3237">Schemes Performance</h5>
+        <div class="example-header">
+            <div style="font-size: 14px">
+                <mat-form-field appearance="outline" style="width: 250px;">
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search record from table">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="example-container mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                <ng-container matColumnDef="Scheme__r.Name">
+                    <th mat-header-cell *matHeaderCellDef>Scheme #</th>
+                    <td mat-cell *matCellDef="let element" class="row-link" (click)="openDialog(element)">{{element.Scheme__r.Name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Scheme__r.Title__c">
+                    <th mat-header-cell *matHeaderCellDef>Title</th>
+                    <td mat-cell *matCellDef="let element">{{element.Scheme__r.Title__c}}</td>
+                </ng-container>
+                FMI_Order__r
+                <ng-container matColumnDef="Scheme_Start_Date__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.Scheme_Start_Date__c | date:'M/d/yyyy'}}</td>
+                    <!-- {{element.LastModifiedDate | date:'M/d/yyyy h:mm a'}} -->
+                </ng-container>
+                <ng-container matColumnDef="Scheme_End_Date__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>End Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.Scheme_End_Date__c | date:'M/d/yyyy'}}</td>
+                </ng-container>
+                <ng-container matColumnDef="DP_Order__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Order #</th>
+                    <td mat-cell *matCellDef="let element" class="order-column">{{element.DP_Order__c}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Buyer_PO_Date__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.Buyer_PO_Date__c | date:'M/d/yyyy'}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Total_Items__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Quantity</th>
+                    <td mat-cell *matCellDef="let element">{{element.Total_Items__c}}</td>
+                </ng-container>
+                <ng-container matColumnDef="Total_Amt">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Amount</th>
+                    <td mat-cell *matCellDef="let element">{{element.Total_Amt}}</td>
+                </ng-container>
+                <ng-container matColumnDef="slab">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Slab Achieved</th>
+                    <td mat-cell *matCellDef="let element"></td>
+                </ng-container>
+                <ng-container matColumnDef="Amazon_Voucher_Credit_Note_number__c">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Amazon Voucher/ CN No.</th>
+                    <td mat-cell *matCellDef="let element">{{element.Amazon_Voucher_Credit_Note_number__c}}</td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                </tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+</div>

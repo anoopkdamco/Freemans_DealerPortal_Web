@@ -1,0 +1,184 @@
+// .active {
+//     background: pink;
+// }
+.chart-head {
+    display: block;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.card img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.homeTopCard .card .body {
+    height: 175px;
+}
+
+.card-content-wrap {
+    min-height: 130px;
+}
+
+.flexs-main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -15px;
+}
+
+.flex-card-wrap {
+    flex: 1;
+    margin: 0px 15px;
+    margin-bottom: 15px;
+}
+
+.flexs-main .card .body {
+    padding: 20px 12px;
+    height: 100% !important;
+}
+
+.flex-card-wrap .progress {
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    right: 10px;
+}
+
+@media(max-width:1299px) {
+    .flex-card-wrap {
+        flex: calc(50% - 30px);
+    }
+}
+
+@media(max-width:767px) {
+    .flexs-main {
+        margin: 0px;
+    }
+    .flex-card-wrap {
+        flex: calc(100% - 0px);
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.foo {
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.bronze {
+    background: rgb(205, 127, 50);
+}
+
+.silver {
+    background: rgb(192, 192, 192);
+}
+
+.gold {
+    background: rgb(255, 215, 0);
+}
+
+.gray {
+    background: rgb(105, 105, 105);
+}
+
+.platinum {
+    background: #e5e4e2;
+}
+
+.centurian {
+    background: #32CD32;
+}
+
+.centerBox {
+    margin: 0 auto;
+}
+
+.chart-body-container {
+    width: 400px;
+    height: 295px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 14px;
+}
+
+// .chart-body-container {
+//     padding-left: 28px;
+//     padding-top: 0;
+// }
+.chart-head-container {
+    display: table;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+}
+
+@media (max-width: 1496px) {
+    // .chart-body-container {
+    //     padding-left: 70px;
+    //     padding-top: 33px;
+    // }
+    // .chart-head-container {
+    //     display: table;
+    //     position: absolute;
+    //     width: 100%;
+    //     top: 0px;
+    // }
+}
+
+@media (max-width: 775px) {
+    // .chart-body-container {
+    //     padding-left: 0px;
+    // }
+}
+
+.chart-foot-container {
+    position: absolute;
+    white-space: nowrap;
+    bottom: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+.chart-lb-box {
+    padding-bottom: 5px;
+}
+
+.legLi {
+    display: inline-block;
+}
+
+.chart-leg-box {
+    display: table;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
+.chart-foot-note {
+    position: absolute;
+    font-size: 12px;
+    color: #8f98ec;
+}
+
+.chart-foot-note span {
+    color: red;
+}
+.lowRes{
+    display:block;
+}
+.highRes{
+    display:none;
+}
+
+/* (1920x1080) Full HD Display */
+@media (min-width: 1920px) and (max-width: 2560px)  {
+ .lowRes{
+    display:none;
+}
+.highRes{
+    display:block;
+}
+}

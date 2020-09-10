@@ -1,0 +1,102 @@
+<div *ngIf="loading" layout="row" layout-fill layout-align="center center" class="spinner-ctn text-center spinner-overlay">
+    <div>
+        <mat-spinner color="accent"></mat-spinner>
+    </div>
+</div>
+<div *ngIf="!loading">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <mat-toolbar>Invoices and Payments</mat-toolbar>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="clearfix flexs-main">
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="allInvoice" [ngClass]="{'activeCard':activeTab=='allInvoices'}" (click)="allInvoiceTab('allInvoices')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237">All Invoices</h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{noOfDueInvoice}} <small class="info"> Due Invoices out of {{noOfTotalInvoice}} Total</small></h2>
+                            <small>{{((tDueInvoice) * 100).toFixed(0)}}% of Total Invoices are Due</small>
+                            <div style="visibility: hidden;">
+                                <small>6% higher than last month</small>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" attr.aria-valuenow="{{noOfDueInvoice}}" attr.aria-valuemin="0" attr.aria-valuemax="{{noOfTotalInvoice}}" [style.width]="tDueInvoice | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="duePayments" [ngClass]="{'activeCard':activeTab=='duePayments'}" (click)="duePaymentsTab('duePayments')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237">Due Payments</h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{duePayment}} <small class="info"> Due Payment Amount out of {{tPayment}} Total Invoiced Amount</small></h2>
+                            <small>{{((tInvoiceAmtDue) * 100).toFixed(0)}}% of Total Invoiced Amount is Due</small>
+                            <div class="progress">
+                                <div class="progress-bar l-pink" role="progressbar" attr.aria-valuenow="{{totalDuePayment}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalPayment}}" [style.width]="tInvoiceAmtDue | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="upcomingPayments" [ngClass]="{'activeCard':activeTab=='upcomingPayments'}" (click)="upcomingPaymentTab('upcomingPayments')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237">Upcoming Payments</h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{upcPayment}} <small class="info"> Upcoming Payment Amount out of {{tPayment}} Total Invoiced Amount</small></h2>
+                            <small>{{((tInvoiceAmtUp) * 100).toFixed(0)}}% of Total Invoiced Amount is Upcoming for Payment</small>
+                            <div *ngIf="toatlUpcomingPayment == 0">
+                                <div style="visibility: hidden;">
+                                    <small>6% higher than last month</small>
+                                </div>
+                            </div>
+                            <div>&nbsp;</div>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" attr.aria-valuenow="{{toatlUpcomingPayment}}" attr.aria-valuemin="0" attr.aria-valuemax="{{totalPayment}}" [style.width]="tInvoiceAmtUp | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="card widget_2 flex-card-wrap">
+                <mat-card class="body activeCard box-link" id="executedPayments" [ngClass]="{'activeCard':activeTab=='executedPayments'}" (click)="executedPaymentTab('executedPayments')">
+                    <mat-card-content>
+                        <div class="card-content-wrap">
+                            <h5 style="color: #ed3237">Executed Payments</h5>
+                            <h2 style=" color: #8f98ec; font-size: 16px;">{{noOfExecutedPayment}} <small class="info"> Paid Invoices out of {{noOfTotalInvoice}} Total</small></h2>
+                            <small>{{((tInvoiceEx) * 100).toFixed(0)}}% of Total Invoices have been paid</small>
+                            <div style="visibility: hidden;">
+                                <small>6% higher than last month</small>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar l-green" role="progressbar" attr.aria-valuenow="{{noOfExecutedPayment}}" attr.aria-valuemin="0" attr.aria-valuemax="{{noOfTotalInvoice}}" [style.width]="tInvoiceEx | percent:'1.0-1'"></div>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="clearfix">
+            <div *ngIf="allInvoice">
+                <app-all-invoice></app-all-invoice>
+            </div>
+            <div *ngIf="duePayments">
+                <app-due-payments></app-due-payments>
+            </div>
+            <div *ngIf="executedPayments">
+                <app-executed-payments></app-executed-payments>
+            </div>
+            <div *ngIf="upcomingPayments">
+                <app-upcoming-payments></app-upcoming-payments>
+            </div>
+
+        </div>
+    </div>
+</div>
